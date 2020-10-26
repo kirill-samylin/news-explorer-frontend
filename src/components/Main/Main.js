@@ -9,7 +9,7 @@ function Main() {
   const [preload, SetPreload] = React.useState(true);
   const contentNews = true; //тестовая переменная для проверки блока
   React.useEffect(() => {
-    setTimeout(() =>  SetPreload(false), 2000); //тайм маут сделан для проверки прелоуда
+    SetPreload(false);
   }, [])
   return (
     <main className="main">
