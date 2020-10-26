@@ -11,7 +11,7 @@ function Header({ isSaved, isLogin, isForm }) {
   function handleMenu() {
     if (headerWidth<=560) {
       setIsMenuOpen(!isMenuOpen);
-    } 
+    }
   }
   React.useEffect(() => {
     window.onresize = () => setHeaderWidth(headerElement.current.parentElement.clientWidth);
@@ -24,7 +24,6 @@ function Header({ isSaved, isLogin, isForm }) {
         {(!isForm ? <button onClick={handleMenu} className={`header__menu ${(isMenuOpen) ? 'icon-close' : (isSaved) ? 'icon-black' : 'icon-menu' }`}></button> : '')}
         <Navigation isClose={handleMenu} isOpen={isMenuOpen} isSaved={isSaved} isLogin={isLogin} />
       </div>
-      <div className="header__line"></div>
       {(isMenuOpen) ? <div onClick={handleMenu} className="header__back" /> : ''}
     </header>
   );

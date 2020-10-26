@@ -12,12 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.header__line {
-  display: block;
-  background-color: rgb(138 137 137 / 50%);
-  height: 1px;
-  width: 100%;
+  border-bottom: 1px solid rgb(138 137 137 / 70%);;
 }
 .header__title {
   font-family: 'Roboto Slab', Arial, sans-serif;
@@ -75,9 +70,6 @@
 @media screen and (max-width: 640px) {
   .header__title {
     z-index: 1;
-  }
-  .header__line {
-    z-index: 5;
   }
 }
 @media screen and (max-width: 560px) {
