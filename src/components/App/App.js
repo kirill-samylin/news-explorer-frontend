@@ -21,7 +21,7 @@ function App() {
         <Route path="/">
           <Header isLogin={handleLogin} isForm={popupWithForm} />
           <Main />
-          <PopupWithForm isOpen={popupWithForm} isClose={handleLogin} isConfirm={true} />
+          <PopupWithForm isOpen={popupWithForm} isClose={handleLogin} isConfirm={false} />
         </Route>
       </Switch>
       <Footer />
