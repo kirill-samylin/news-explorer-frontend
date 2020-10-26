@@ -8,11 +8,11 @@ function Footer() {
       <nav className="footer__menu">
         <div className="footer__links">
           <NavLink className="footer__link" to="/">Главная</NavLink>
-          <NavLink className="footer__link" to="https://praktikum.yandex.ru/" target="_blank">Яндекс.Практикум</NavLink>
+          <a className="footer__link" href="https://praktikum.yandex.ru/" target="_blank" rel="noopener noreferrer">Яндекс.Практикум</a>
         </div>
         <div className="footer__icons">
-          <NavLink className="footer__social github-icon" to="https://github.com/kirill-samylin" target="_blank" />
-          <NavLink className="footer__social fb-icon" to="https://vk.com/samylin1992" target="_blank" />
+          <a className="footer__social github-icon" href="https://github.com/kirill-samylin" target="_blank" rel="noopener noreferrer"> </a>
+          <a className="footer__social fb-icon" href="https://vk.com/samylin1992" target="_blank" rel="noopener noreferrer"> </a>
         </div>
       </nav>
     </footer>

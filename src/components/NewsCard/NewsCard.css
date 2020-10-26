@@ -44,7 +44,9 @@
 .news__portal {
   font-family: 'Roboto Slab', Arial, sans-serif;
   text-transform: uppercase;
+  text-decoration: none;
   color: #B6BCBF;
+  display: block;
   font-size: 16px;
   line-height: 20px;
   padding: 18px 24px 20px;

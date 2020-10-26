@@ -14,7 +14,7 @@ function NewsCard({ isSaved }) {
       <p className="news__date">2 августа, 2019</p>
       <h3 className="news__name">Национальное достояние – парки</h3>
       <p className="news__paragraph">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-      <p className="news__portal">Лента.ру</p>
+      <a href="https://lenta.ru/" className="news__portal" target="_blank" rel="noopener noreferrer" >Лента.ру</a>
       {(isSaved) ? <button className="news__category">Парки</button> : ''}
       <button className={`news__button ${buttonClass}`} />
       <div className="news__warning">{warningMsg}</div>
