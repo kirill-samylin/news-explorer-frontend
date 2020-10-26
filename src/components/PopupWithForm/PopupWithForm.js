@@ -39,21 +39,21 @@ function PopupWithForm({ isOpen, isClose, isConfirm }) {
           <input id="email" className="popup__input" type="email" required placeholder="Введите почту" />
           <span className="popup__span-error popup__span-error_active">Неправильный формат email</span>
           <label className="popup__labal" htmlFor="password">Пароль</label>
-          <input className="popup__input" id="password" type="password" minLength="2" maxLength="200" required  placeholder="Введите пароль"/>
+          <input className="popup__input" id="password" type="password" minLength="8" maxLength="30" required  placeholder="Введите пароль"/>
           <span className="popup__span-error popup__span-error_active">Неправильный формат пароля</span>
         </>
         }
         {(isLogin && isConfirm) ? '' :
         <>
           <label className="popup__labal" htmlFor="name">Имя</label>
-          <input className="popup__input" id="name" type="text" minLength="8" maxLength="30" required placeholder="Введите имя" />
+          <input className="popup__input" id="name" type="text" minLength="2" maxLength="30" pattern="[A-Za-zА-Яа-яЁё -]{2,30}" required placeholder="Введите имя" />
           <span className="popup__span-error popup__span-error_active">Неправильный формат имени</span>
         </>
         }
         {(isConfirm) ? '' :
         <>
           <span className="popup__span-button popup__span-error_active">Такой пользователь уже есть</span>
-          <button id="button" className="popup__button-add popup__button-add_disabled" type="submit" disabled>{button}</button>
+          <button className="popup__button-add popup__button-add_disabled" type="submit" disabled>{button}</button>
           <p className="popup__footer">или<span onClick={onRegisg} className="popup__link">{link}</span></p>
         </>
         }
