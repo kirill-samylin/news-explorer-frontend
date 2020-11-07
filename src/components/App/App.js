@@ -16,9 +16,10 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [savedArticles, setSavedArticles] = React.useState([]);
   const [isError, setIsError] = React.useState('');
-  const [user, setUser] = React.useState('');
+  const [user, setUser] = React.useState({});
   const [isSuccess, setIsSuccess] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
+  const [quantityCards, setQuantityCards] = React.useState(2);
   function comparisonArt(one, two) {
     return one.text===two.text && one.title===two.title && one.date===two.date
   }
@@ -29,6 +30,11 @@ function App() {
   function handleForm() {
     cleaningError();
     setPopupWithForm(!popupWithForm);
+  }
+  function loadingCards() {
+    if (cards.length>quantityCards) {
+      setQuantityCards(quantityCards + 3);
+    }
   }
   function saveLocalCards(data, articles = savedArticles) {
     const result = data.map((art) => {
@@ -159,6 +165,8 @@ function App() {
             handleDelete={handleDelete}
             handleForm={handleForm}
             loading={loading}
+            quantityCards={quantityCards}
+            loadingCards={loadingCards}
           />
           <PopupWithForm
             isOpen={popupWithForm}

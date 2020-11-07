@@ -2,15 +2,10 @@ import React from 'react';
 import './NewsCardList.css';
 import { useLocation } from 'react-router-dom';
 import NewsCard from '../NewsCard/NewsCard';
-function NewsCardList({ articles, handleSaved, handleDelete, handleForm }) {
-  const [quantityCards, setQuantityCards] = React.useState(2);
+function NewsCardList({ articles, handleSaved, handleDelete, handleForm, quantityCards, loadingCards }) {
   const location = useLocation();
   const isSaved = (location.pathname==="/saved-news");
-  function loadingCards() {
-    if (articles.length>quantityCards) {
-      setQuantityCards(quantityCards + 3);
-    }
-  }
+
   return (
     <section className="news">
       {(isSaved) ? '' : <h2 className="news__title">Результаты поиска</h2>}
