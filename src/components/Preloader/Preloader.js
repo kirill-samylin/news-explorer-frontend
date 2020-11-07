@@ -1,13 +1,12 @@
 import React from 'react';
 import './Preloader.css';
-function Preloader({ isContent }) {
-  const iconClass = (isContent) ? 'icon-preloader' : 'icon-not';
-  const textClass = (isContent) ? 'Идет поиск новостей...' : 'К сожалению по вашему запросу ничего не найдено.';
+function Preloader({ isPreload }) {
+  const iconClass = (isPreload.loading) ? 'icon-preloader' : 'icon-not';
   return (
     <section className="preloader">
       <i className={iconClass} />
-      {(isContent) ? '' : <h3 className="preloader__title">Ничего не найдено</h3>}
-      <p className="preloader__paragraph">{textClass}</p>
+      {(isPreload.title) ? <h3 className="preloader__title">{isPreload.title}</h3> : null}
+      <p className="preloader__paragraph">{isPreload.message}</p>
     </section>
   );
 }

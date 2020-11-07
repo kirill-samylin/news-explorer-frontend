@@ -1,28 +1,30 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Header.css';
 import Navigation from '../Navigation/Navigation';
-function Header({ isSaved, isLogin, isForm }) {
-  const headerElement = React.createRef();
+function Header({ handleForm, isForm, onSignOut }) {
   const [headerWidth, setHeaderWidth] = React.useState('');
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const title = (isSaved) ? 'header__title_theme_black' : '';
-
+  const headerElement = React.createRef();
+  const location = useLocation();
+  const isSaved = (location.pathname==="/saved-news");
+  const titleClass = (isSaved && !isMenuOpen) ? 'header__title_theme_black' : '';
+  const buttonClass = (isSaved) ? 'icon-black' : 'icon-menu';
   function handleMenu() {
     if (headerWidth<=560) {
       setIsMenuOpen(!isMenuOpen);
     }
   }
   React.useEffect(() => {
-    window.onresize = () => setHeaderWidth(headerElement.current.parentElement.clientWidth);
     setHeaderWidth(headerElement.current.parentElement.clientWidth);
-  }, [headerElement]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <header ref={headerElement} className="header">
       <div className="header__main">
-        <NavLink className={`header__title ${(isSaved && !isMenuOpen) ? title: ''}`} to="/">NewsExplorer</NavLink>
-        {(!isForm ? <button onClick={handleMenu} className={`header__menu ${(isMenuOpen) ? 'icon-close' : (isSaved) ? 'icon-black' : 'icon-menu' }`}></button> : '')}
-        <Navigation isClose={handleMenu} isOpen={isMenuOpen} isSaved={isSaved} isLogin={isLogin} />
+        <NavLink className={`header__title ${titleClass}`} to="/">NewsExplorer</NavLink>
+        {(!isForm ? <button onClick={handleMenu} className={`header__menu ${(isMenuOpen) ? 'icon-close' : buttonClass}`}></button> : '')}
+        <Navigation handleMenu={handleMenu} isOpen={isMenuOpen} handleForm={handleForm} onSignOut={onSignOut} />
       </div>
       {(isMenuOpen) ? <div onClick={handleMenu} className="header__back" /> : ''}
     </header>

@@ -21,8 +21,7 @@
   display: grid;
   justify-items: center;
   width: calc(100% - 104px * 2);
-  /*grid-template-columns: repeat(auto-fit, 400px);*/
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   grid-gap: 16px;
 }
 .news__load {
