@@ -27,7 +27,8 @@
 .popup__container {
   max-width: 80%;
   width: 430px;
-  height: max-content;
+  height: -webkit-max-content;
+
   background-color: white;
   border-radius: 16px;
   position: fixed;
@@ -85,7 +86,7 @@
   color: #FF0000;
   opacity: 0;
   margin: 0 36px;
-  height: 14px;
+  min-height: 14px;
 }
 .popup__span-button {
   font-family: Inter, Arial, sans-serif;
@@ -133,31 +134,28 @@
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 500;
   height: 64px;
-  background-color: #2F71E5;
-  color: white;
   font-size: 18px;
   line-height: 24px;
   border-radius: 100px;
   margin: 6px 36px 17px;
-  color: #FFFFFF;
   border: none;
   cursor: pointer;
-}
-.popup__button-add:focus {
-  background-color: #2A65CC;
-}
-.popup__button-add:hover {
-  background-color: #347EFF;
-}
-.popup__button-add_disabled {
   color: #B6BCBF;
   background-color: #E6E8EB;
+}
+.popup__button-add_active {
+  background-color: #2F71E5;
+  color: white;
+}
+.popup__button-add_active:hover {
+  background-color: #347EFF;
 }
 .popup__login {
   font-family: Inter, Arial, sans-serif;
   font-size: 18px;
   margin: 3px 36px 56px;
   color: #2F71E5;
+  cursor: pointer;
 }
 @media screen and (max-width: 375px) {
   .popup {

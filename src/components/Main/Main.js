@@ -5,16 +5,21 @@ import NewsCardList from '../NewsCardList/NewsCardList';
 import About from '../About/About';
 import Preloader from '../Preloader/Preloader';
 
-function Main() {
-  const [preload, SetPreload] = React.useState(true);
-  const contentNews = true; //тестовая переменная для проверки блока
-  React.useEffect(() => {
-    SetPreload(false);
-  }, [])
+function Main({ isPreload, articles, handleSearch, handleSaved, handleDelete, handleForm, loading, quantityCards, loadingCards }) {
   return (
     <main className="main">
-      <SearchForm />
-      {(preload) ? <Preloader isContent={contentNews} /> : <NewsCardList />}
+      <SearchForm handleSearch={handleSearch} loading={loading} />
+      {(isPreload.visibility) ? <Preloader isPreload={isPreload} /> : null}
+      {(articles && articles.length) ?
+        <NewsCardList
+          articles={articles}
+          handleSaved={handleSaved}
+          handleDelete={handleDelete}
+          handleForm={handleForm}
+          quantityCards={quantityCards}
+          loadingCards={loadingCards}
+        />
+      : null}
       <About />
     </main>
   );
