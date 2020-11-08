@@ -1,10 +1,10 @@
-import { newsUrl, apiKey, getDateAgo } from './constants.js';
+import { newsUrl, apiKey, getDateAgo, pageSize, language } from './constants.js';
 
 export const search = (words) => {
   const dataNow = new Date();
   const dataPast = getDateAgo(dataNow, 7);
 
-  return fetch(`${newsUrl}/everything?q=${words}&apiKey=${apiKey}&pageSize=100&from=${dataPast.toISOString()}&to=${dataNow.toISOString()}&language=ru`, {
+  return fetch(`${newsUrl}/everything?q=${words}&apiKey=${apiKey}&pageSize=${pageSize}&from=${dataPast.toISOString()}&to=${dataNow.toISOString()}&language=${language}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
