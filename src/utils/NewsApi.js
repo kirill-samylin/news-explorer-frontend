@@ -4,7 +4,7 @@ export const search = (words) => {
   const dataNow = new Date();
   const dataPast = getDateAgo(dataNow, 7);
 
-  return fetch(`${newsUrl}/everything?q=${words}&apiKey=${apiKey}&pageSize=100&from=${dataPast.toISOString()}&to=${dataNow.toISOString()}`, {
+  return fetch(`${newsUrl}/everything?q=${words}&apiKey=${apiKey}&pageSize=100&from=${dataPast.toISOString()}&to=${dataNow.toISOString()}&language=ru`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
