@@ -54,6 +54,7 @@ function App() {
     setLoading(true);
     saveLocalCards([]);
     setPreload(loadStatus);
+    setQuantityCards(2);
     search(words)
       .then((data) => {
         if (data.status === 'ok' && data.totalResults) {
